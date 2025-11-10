@@ -1,0 +1,20 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void computeCubeRoot(int* num, double* cbr) {
+    *cbr = cbrt(*num);
+}
+
+int main() {
+    int num;
+    double cbr;
+    cout << "Enter a number: ";
+    cin >> num;
+    
+    computeCubeRoot(&num, &cbr);
+    
+    cout << "Cube Root: " << cbr << endl;
+    
+    return 0;
+}
