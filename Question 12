@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+void computeCube(int* num, int* cb) {
+    *cb = (*num) * (*num) * (*num);
+}
+
+int main() {
+    int num, cb;
+    cout << "Enter a number: ";
+    cin >> num;
+    
+    computeCube(&num, &cb);
+    
+    cout << "Cube: " << cb << endl;
+    
+    return 0;
+}
