@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+void checkOddEven(int* num) {
+    if (*num % 2 == 0)
+        cout << *num << " is an even number" << endl;
+    else
+        cout << *num << " is an odd number" << endl;
+}
+
+int main() {
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+    
+    checkOddEven(&num);
+    
+    return 0;
+}
