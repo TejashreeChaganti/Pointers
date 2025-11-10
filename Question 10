@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+void computeSquare(int* num, int* sq) {
+    *sq = (*num) * (*num);
+}
+
+int main() {
+    int num, sq;
+    cout << "Enter a number: ";
+    cin >> num;
+    
+    computeSquare(&num, &sq);
+    
+    cout << "Square: " << sq << endl;
+    
+    return 0;
+}
