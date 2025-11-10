@@ -1,0 +1,59 @@
+Question 1 - Fibonacci  #include <iostream>
+using namespace std;
+
+void generateFibonacci(int n, int* fib) {
+    if (n >= 1) {
+        *fib = 0;  // First Fibonacci number
+    }
+    if (n >= 2) {
+        *(fib + 1) = 1;  // Second Fibonacci number
+    }
+    
+    // Generate remaining Fibonacci numbers using pointers
+    for (int i = 2; i < n; i++) {
+        *(fib + i) = *(fib + i - 1) + *(fib + i - 2);
+    }
+}
+
+void displayFibonacci(int n, int* fib) {
+    cout << "Fibonacci Series (using pointers): ";
+    for (int i = 0; i < n; i++) {
+        cout << *(fib + i);
+        if (i < n - 1) cout << ", ";
+    }
+    cout << endl;
+}
+
+int main() {
+    int n;
+    
+    cout << "Enter the number of terms: ";
+    cin >> n;
+    
+    if (n <= 0) {
+        cout << "Please enter a positive number." << endl;
+        return 1;
+    }
+    
+    // Dynamic memory allocation using pointer
+    int* fibonacci = new int[n];
+    
+    // Generate Fibonacci series
+    generateFibonacci(n, fibonacci);
+    
+    // Display Fibonacci series
+    displayFibonacci(n, fibonacci);
+    
+    // Accessing elements using pointer arithmetic
+    cout << "\nAccessing elements using pointer arithmetic:" << endl;
+    int* ptr = fibonacci;
+    for (int i = 0; i < n; i++) {
+        cout << "fibonacci[" << i << "] = " << *ptr << " (address: " << ptr << ")" << endl;
+        ptr++;  // Move pointer to next element
+    }
+    
+    // Free dynamically allocated memory
+    delete[] fibonacci;
+    
+    return 0;
+}
